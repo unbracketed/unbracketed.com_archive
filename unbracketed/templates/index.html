@@ -1,0 +1,28 @@
+{% extends "oocss_base.html" %}
+{% load widont %}
+{% load content_tags %}
+
+{% block main_content %}
+<div class="line">
+    <div class="unit size1of3 teaserBox dark">
+        {% content_teaserbox items.0 %}
+    </div>
+    <div class="unit size1of3 teaserBox dark">
+       {% content_teaserbox items.1 %}
+    </div>
+    <div class="unit size1of3 lastUnit teaserBox dark">
+        {% content_teaserbox items.2 %}
+    </div>
+</div>
+<div class="line">
+    <div class="unit size1of3 teaserBox dark">
+        {% content_teaserbox items.3 %}
+    </div>
+    <div class="unit size1of3 teaserBox dark">
+       {% content_teaserbox items.4 %}
+    </div>
+    <div class="unit size1of3 lastUnit teaserBox dark">
+        {% content_teaserbox items.5 %}
+    </div>
+</div>
+{% endblock main_content %}

@@ -1,0 +1,16 @@
+
+<div>
+    <div class="teasebox" id="pro-tips-tease" style="height:40px; padding:15px 10px 5px 10px">
+        <img height=24px src="{{MEDIA_URL}}images/icons/Star-White-24x24.png"/>Pro Tips: It's The Little Things</a>
+        {% include "widgets/paginator.html" %}
+    </div>
+    {% for tip in object_list %}
+    <div class="line {% cycle "dark" "lessdark" %}" style="margin-bottom:0px">
+        
+        <div class="unit size5of5" style="padding-bottom:10px">
+          <p class="tip-archive-description" style="font-size:170%"><a href="{% url content_pro_tips_tip tip.slug %}">{{tip.description}}</a></p>  
+          <p class="tag_list">Tagged: <span class="tags">{{tip.tags}}</span></p>
+        </div>
+    </div>
+    {% endfor %}
+</div>

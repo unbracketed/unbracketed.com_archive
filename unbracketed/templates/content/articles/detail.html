@@ -1,0 +1,13 @@
+{% extends "content/base.html" %}
+{% load markup %}
+
+{% block main_content %}
+
+<h2>{{object.title}}</h2>
+
+<div class="text_content_container article">
+    {{object.body_display|safe}}
+</div>
+
+<div id="disqus_thread"></div><script type="text/javascript" src="http://disqus.com/forums/unbracketed/embed.js"></script><noscript><a href="http://disqus.com/forums/unbracketed/?url=ref">View the discussion thread.</a></noscript><a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends "content/base.html" %}
+{% block main_content %}
+
+<h2>{{object.description}}</h2>
+<div style="padding:5px;color:#222;font-size:110%">
+<strong>...and I should do this because:</strong>
+</div>
+<div class="text_content_container protip">
+    {{object.explanation|safe}}
+</div>
+<div id="disqus_thread"></div><script type="text/javascript" src="http://disqus.com/forums/unbracketed/embed.js"></script><noscript><a href="http://disqus.com/forums/unbracketed/?url=ref">View the discussion thread.</a></noscript><a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+{% endblock %}

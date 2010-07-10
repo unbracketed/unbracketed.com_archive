@@ -1,0 +1,35 @@
+{% load utils_tags %}
+{% load tagging_util_tags %}
+{% generic_object_list article.category all as article_categories %}
+{% top_tags_for_model article.Entry as top_entry_tags 5 %}
+
+<div id="category-topic-combo">
+    <div id="category-column">
+    
+        <h2>Content</h2>
+        <ul>
+        {% for cat in article_categories %}
+            <li>
+                    <a href="{{cat.get_feed_url}}"><img width="16" height="16" src="{{MEDIA_URL}}images/feed.png" alt="feed icon"/></a> 
+                    <a href="{{cat.get_absolute_url}}">{{cat.title}}</a>
+            </li>
+        {% endfor %}
+        </ul>
+    
+    </div>
+    <div id="topic-column">
+    
+        <h2>Top Topics</h2>
+        <ul>
+        {% for topic in top_entry_tags %}
+            <li>
+                <a href="{{ topic.feed_url }}"><img width="16" height="16" src="{{MEDIA_URL}}images/feed.png" alt="feed icon"/></a>
+                <a href="{% url blog_tag_list topic %}">{{topic.name}}</a>
+            </li>
+        {% endfor %}	
+            <li style="padding-left:20px;background:#e6ece6;border-top:1px dotted #FF7900"><b>See <a href="{% url blog_tag_cloud %}">all topics</a></b></li>
+        </ul>
+
+    </div>
+    <div style="clear:both;margin-bottom:18px;height:0px">&nbsp;</div>
+</div>

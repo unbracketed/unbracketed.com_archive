@@ -1,0 +1,11 @@
+{% extends "blog/base.html" %}
+{% load article_tags %}
+
+{% block main_content %}
+	{% entry_excerpt_list topic_list %}
+{% endblock main_content %}
+
+{%block content_title%}Articles for Topic: {{ tag_text }}{% endblock content_title %}
+{% block breadcrumbs %}<a href="{% url home_page %}">Home</a>  >  <a href="{% url blog_tag_list_all %}">Topics</a>  >  {{tag_text}}{% endblock %}
+
+{% block page_title %}Unbracketed: Entries About "{{tag_text}}"{% endblock %}

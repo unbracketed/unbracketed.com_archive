@@ -1,0 +1,14 @@
+{% extends "content/base.html" %}
+
+{% block head_js %}
+<script>
+$(document).ready(function(){
+    $('#paginator a').live('click', function(){
+        $.get(this.href,function(data,status){
+            $('#{{container}}_entries').html(data);
+        });
+        return false;
+    });
+});
+</script>
+{% endblock %}

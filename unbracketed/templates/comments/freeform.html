@@ -1,0 +1,9 @@
+<form action="{% url home_page %}comments/postfree/" method="post">
+		<p style="padding-top:10px"><b>Your name:</b> <input type="text" id="id_person_name" name="person_name" /></p>
+		<p><b>Comment:</b><br /><textarea name="comment" id="id_comment" rows="10" cols="60"></textarea></p>
+		<input type="hidden" name="options" value="{{ options }}" />
+		<input type="hidden" name="target" value="{{ target }}" />
+		<input type="hidden" name="gonzo" value="{{ hash }}" />
+		<input type="hidden" name="url" value="{{ object.get_absolute_url }}" />
+		<p><input type="submit" name="preview" value="Preview comment" /></p>
+</form>

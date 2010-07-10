@@ -1,0 +1,8 @@
+Comment: http://127.0.0.1{{ comment.get_absolute_url }}
+From: {{ comment.person_name }}
+
+-----
+{{ comment.comment }}
+-----
+
+Admin: http://127.0.0.1/admin/comments/freecomment/{{comment.id}}/

@@ -1,0 +1,5 @@
+{% if debug %} 
+<link rel="alternate" title="Feed of latest articles" href="{% url blog_feeds "latest" %}" type="application/rss+xml" />
+{% else %}
+<link rel="alternate" title="Feed of latest articles" href="http://feeds.unbracketed.org/Unbracketed" type="application/rss+xml" />
+{% endif %}

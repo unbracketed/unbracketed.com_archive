@@ -1,0 +1,36 @@
+{% extends "static/base.html" %}
+
+{% block page_title %}Unbracketed: About This Site{% endblock %}
+
+{% block content_title %}About Unbracketed{% endblock %}
+
+{% block main_content %}
+<img style="float:left; border-left:1px solid #ff7900; border-right:1px solid #ff7900;padding-left:2px;padding-right:2px;margin-right:10px;" src="{{MEDIA_URL}}images/brian_luft.jpg" alt="Picture of Brian Luft"/>
+<p>Hi. I'm Brian Luft and I am solely responsible for the content, design, unintentional neglect, outrageous opinions, errors in judgement, and sparse inspirational ideas that grace this site.
+I started <span class="orange">Unbracketed</span> as a creative outlet; a place to reflect on my little corner of the software development universe.  I hope that in
+time the site will grow to become a useful resource for those who share my interests which are - generally speaking - Python, Django,
+web application development, open source software, and the benefits of community collaboration to create empowering solutions that remove barriers to entry.</p>
+
+<p>"<span class="orange">Unbracketed</span>" is meant to be a take on the syntax of Python, which does not use braces to denote code blocks like many current
+modern programming languages do.  That of course has very little to do with why Python fans enjoy the language but many
+will point to the use of whitespace as a notable benefit. Many others will single out the whitespace as a reason to avoid
+the language altogether.  To each his/her own!  I digress. "Unbracketed" is also meant to convey a larger sense of freedom.  Freedom
+to be productive, freedom to enjoy programming, freedom to advance the state of the art, freedom to make the
+computing experience more enjoyable for all.  I believe that Python is a good choice for enabling these goals and so
+this site and my activities around it are my little contribution toward furthering Python's place.</p>
+
+<p>I am genuinely interested in what others have to say and the occasional moment where I can be truly be of help
+to someone is what motivates me to keep learning and working hard.  If you have any questions or comments please
+<a href="{% url contact_page %}">get in touch</a>.</p>
+
+<p>Thank you for visiting.</p>
+
+<p>Other places you can find me:</p>
+<ul style="list-style:none">
+    <li><a href="http://www.linkedin.com/in/brianluft" rel="me"><img src="http://www.linkedin.com/img/webpromo/btn_liprofile_blue_80x15.gif" width="80" height="15" border="0" alt="View Brian Luft's profile on LinkedIn"></a></li>
+    <li><img src="http://del.icio.us/static/img/delicious.med.gif"><a href="http://del.icio.us/kingoflunnova" rel="me">del.icio.us</a> (<a href="http://del.icio.us/kingoflunnova/python">python links</a>) (<a href="http://del.icio.us/kingoflunnova/python">django links</a>)</li>
+    <li><a href="http://technorati.com/people/technorati/luftyluft" rel="me">Technorati</a></li>
+    <li><a href="http://djangopeople.net/luftyluft/" rel="me">Django People</a></li>
+    <li><a href="http://djangogigs.com/developers/brian-luft/" rel="me">Django Gigs</a></li>
+</ul>
+{% endblock %}

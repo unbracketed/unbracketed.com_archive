@@ -1,0 +1,15 @@
+<VirtualHost *:80>
+        ServerName dev.unbracketed.com
+        WSGIScriptAlias / /home/brian/proj/unbracketed/trunk/unbracketed/config/hpmini.wsgi
+</VirtualHost>
+
+<VirtualHost *:80>
+        ServerName media.dev.unbracketed.com
+        DocumentRoot /home/brian/proj/unbraceketed/trunk/unbracketed/media
+        <Directory />
+                Options FollowSymLinks
+                AllowOverride None
+                Order allow,deny
+                allow from all
+        </Directory>
+</VirtualHost>

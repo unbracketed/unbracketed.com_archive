@@ -1,0 +1,18 @@
+{% extends "blog/base.html" %}
+{% load tagging_tags %}
+{% load tagging_util_tags %}
+
+{% block main_content %}
+   
+		<p>
+		{% tag_cloud_for_model article.Entry as topic_cloud with steps=6  %}
+		{% for topic in topic_cloud %}
+			<span class="tag-cloud-weight{{topic.font_size}} cloud-item"><a style="text-decoration:none" href="{% url blog_tag_list topic %}">{{ topic|tag_syntax }}</a></span>
+		{% endfor%}
+		</p>
+{% endblock main_content %} 
+{%block content_title%}All Topics{% endblock content_title %}   
+
+{%block page_title%}Unbracketed: Topics{%endblock%}
+
+{% block breadcrumbs %}{{block.super}}{% endblock %}

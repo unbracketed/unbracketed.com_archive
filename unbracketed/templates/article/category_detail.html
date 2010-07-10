@@ -1,0 +1,12 @@
+{% extends "article/base.html" %}
+{% load article_tags %}
+
+{% block main_content %}
+<div class="infobox">{{object.description}}</div>
+{% entry_excerpt_list object.live_entry_set %}
+{% endblock %}
+
+{% block content_title %}Entries Assigned to Category "{{object.title}}"{% endblock %}
+{% block breadcrumbs %}{{block.super}}  >  {{object.title}}{% endblock %}
+
+{% block page_title %}Unbracketed: {{object.title}} Entries{% endblock %}

@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% load markup %}
+
+{% block content_title %}Preview your comment{% endblock %}
+
+{% block main_content %}
+
+<div id="comments_section">
+<form action="{% url home_page %}comments/postfree/" method="post">
+	{% if comment_form.has_errors %}
+	    <p><strong style="color: red;">Please correct the following errors.</strong></p>
+	{% else %}
+		<h3 style="border-bottom: 1px dotted #0074ab;padding-left:0px;padding-bottom:5px">This is how your posted comment will appear:</h3>
+	   <div class="comment">
+			<h4 id="c{{comment.id}}" class="commentor_name">{{comment.person_name}}</h4>
+			<p>{{comment.comment|striptags|markdown}}</p>
+		</div>
+
+	    <p style="margin-top:10px"><input type="submit" name="post" value="Post public comment" /></p>
+
+	    <h3 style="padding-left:0px;margin-top:20px">Or edit it again</h3>
+	{% endif %}
+
+	{% if comment_form.person_name.errors %}
+	    {{ comment_form.person_name.html_error_list }}
+	{% endif %}
+
+	<p style="margin-top:10px"><label for="id_person_name">Your name:</label> {{ comment_form.person_name }}</p>
+
+	{% if comment_form.comment.errors %}
+		{{ comment_form.comment.html_error_list }}
+	{% endif %}
+
+	<p>
+		<label for="id_comment">Comment:</label>
+		<br />
+		{{ comment_form.comment }}
+	</p>
+	
+	<input type="hidden" name="options" value="{{ options }}" />
+	<input type="hidden" name="target" value="{{ target }}" />
+	<input type="hidden" name="gonzo" value="{{ hash }}" />
+	<input type="hidden" name="url" value="{{ comment.get_content_object.get_absolute_url }}" />
+
+	<p>
+		<input type="submit" name="preview" value="Preview revised comment" />
+	</p>
+</form>
+</div>
+{% endblock %}

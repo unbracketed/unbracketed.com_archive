@@ -1,0 +1,6 @@
+{% ifequal paginator.count 1 %}{% else %}
+<div style="float:right;width:300px;height:35px;text-align:right;margin-top:-6px" id="paginator">
+        {{page_obj.start_index}} to {{page_obj.end_index}} of {{paginator.count}}<br/>
+        {% if page_obj.has_previous %}<a href="{{archive_url}}?page={{page_obj.previous_page_number}}">Prev</a>&nbsp;{%endif%}{% if page_obj.has_next %}<a href="{{archive_url}}?page={{page_obj.next_page_number}}">Next</a>{%endif%}
+</div>
+{% endifequal %}

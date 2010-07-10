@@ -1,0 +1,9 @@
+Getting Started:
+
+Make virtual environment
+Download source
+pip install
+
+dj syncdb
+dj migrate --fake
+

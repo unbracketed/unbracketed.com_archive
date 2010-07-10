@@ -1,0 +1,31 @@
+upstream django {
+    server         127.0.0.1:8080;
+}
+
+# This can be used to redirect example.com to www.example.com
+#server {
+    #server_name  example.com;
+    #rewrite ^(.*) http://www.example.com$1 permanent;
+#}
+
+server {
+    listen   80;
+    server_name  dev.unbracketed.com;
+
+    location / {
+        proxy_pass  http://django; 
+        # This will proxy this request to upstream of django which is defined above.
+        include     /etc/nginx/proxy.conf;
+    }
+    # Link your media to server static content
+    location /site_media/ {
+        alias    /home/brian/proj/unbracketed/unbracketed/media/;
+        # This would be set to whatever is in your setting.MEDIA_ROOT.
+    }
+    
+    #admin media
+    location /media/ {
+        alias   /home/brian/.virtualenvs/ub/src/django-trunk/django/contrib/admin/media/;
+        # This would be set to whatever is in your setting.MEDIA_ROOT.
+    }
+}

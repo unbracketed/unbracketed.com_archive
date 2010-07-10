@@ -1,0 +1,14 @@
+{% extends "article/base.html" %}
+{% load article_tags %}
+{% block main_content %}
+   
+		<ul class="spaced_list">
+		{% for d in date_list %}
+			<li><a href="{% url article_entry_archive_month year=year,month=d|date:"b" %}">{{ d|date:"F" }}</a>    ({% entry_count_for_month d %} entries)</li>
+		{% endfor %}
+		</ul>
+{% endblock main_content %}    
+
+{% block content_title %}Archived Entries for {{ year }}{% endblock %}
+{% block breadcrumbs %}{{block.super}}  >  {{year}}{% endblock %}
+{% block page_title %}Unbracketed: {{year}} Archive{% endblock %}

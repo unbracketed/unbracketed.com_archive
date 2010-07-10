@@ -1,0 +1,22 @@
+-e svn+http://code.djangoproject.com/svn/django/trunk/#egg=Django-trunk
+-e svn+http://django-command-extensions.googlecode.com/svn/trunk/#egg=django-command-extensions
+-e git+http://github.com/robhudson/django-debug-toolbar.git#egg=django-debug-toolbar
+
+# Apps that are installed "directly" non-editable because they lack a
+# setuptools setup.py, are not released on pypi or don't have a recent release
+http://django-tagging.googlecode.com/svn/trunk/
+http://django-template-utils.googlecode.com/svn/trunk/
+
+http://pydelicious.googlecode.com/files/pydelicious-0.5.2-rc2.zip
+
+unipath
+pygments
+
+simplejson
+twitter
+
+docutils
+http://www.aeracode.org/releases/south/south-0.6.1.tar.gz
+
+django-markitup
+markdown

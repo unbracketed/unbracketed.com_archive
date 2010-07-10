@@ -1,0 +1,50 @@
+<h2>Search</h2>
+        
+<div id="unbracketed_search_box"><div style="float:left;width=48px;"><img src="{{MEDIA_URL}}images/logo_small.png"/></div>
+  <div style="float:left;width:150px;margin-left:20px;margin-top:20px"><span style="font-family:monospace;font-size:14px;color:#ff7900;">Search This Site</span></div>
+  <div style="clear:both"></div>
+{% if not debug %}	
+<!-- Google CSE code begins -->
+<form id="searchbox_001059180971120576015:7p7dgmqahnk" onsubmit="return false;">
+  <input type="text" name="q" size="30"/>
+  <input type="submit" value="Search"/>
+</form>
+<script type="text/javascript" src="http://www.google.com/coop/cse/brand?form=searchbox_001059180971120576015%3A7p7dgmqahnk&lang=en"></script>
+
+<div id="results_001059180971120576015:7p7dgmqahnk" style="display:none">
+  <div class="cse-closeResults"> 
+    <a>&times; close</a>
+  </div>
+  <div class="cse-resultsContainer"></div>
+</div>
+
+<style type="text/css">
+@import url(http://www.google.com/cse/api/overlay.css);
+</style>
+
+<script src="http://www.google.com/uds/api?file=uds.js&v=1.0&key=ABQIAAAAOroaD6OiQRlgxSckSsPqYhRaFGbCPVDFQvMHCStD6XvEFHu5ohS97rCsKfj6HAkuXytMB1AKZM0HZQ&hl=en" type="text/javascript"></script>
+<script src="http://www.google.com/cse/api/overlay.js"></script>
+<script type="text/javascript">
+function OnLoad() {
+  new CSEOverlay("001059180971120576015:7p7dgmqahnk",
+                 document.getElementById("searchbox_001059180971120576015:7p7dgmqahnk"),
+                 document.getElementById("results_001059180971120576015:7p7dgmqahnk"));
+}
+GSearch.setOnLoadCallback(OnLoad);
+</script>
+<!-- Google CSE Code ends -->
+{% endif %}
+</div>
+
+<!--DjangoSearch-->
+<div style="border-left:1px solid">
+<a href="http://djangosearch.com/"><img src="http://media.djangosearch.com/logo.gif"></a>
+</div>
+<form id="django_search_box" action="http://djangosearch.com/results/">
+ <div style="padding-top:10px;padding-left:10px;border-left:1px solid;margin-bottom:18px"> 
+<input type="hidden" name="cx" value="006238239194895611142:8jngx6a3fz8" />
+<input name="q" type="text" size="25" />
+<input type="submit" name="sa" value="Search" />
+<input type="hidden" name="cof" value="FORID:10" />
+</div>
+</form>

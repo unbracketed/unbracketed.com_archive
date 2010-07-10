@@ -1,0 +1,16 @@
+<div>
+    <div class="teasebox" id="pro-tips-tease" style="height:40px; padding:15px 10px 5px 10px">
+        <img height=24px src="{{MEDIA_URL}}images/icons/barretr_Pencil.png"/>What I Think About Some Things</a>
+        {% include "widgets/paginator.html" %}
+    </div>
+    {% for article in object_list %}
+    <div class="line {% cycle "dark" "lessdark" %}" style="margin-bottom:0px">
+        
+        <div class="unit size5of5" style="padding-bottom:10px">
+          <p class="tip-archive-description" style="font-size:170%"><a href="{% url content_article_detail article.slug %}">{{article.title}}</a></p>
+          <p>{{article.excerpt}}</p>
+          <p class="tag_list">Tagged: <span class="tags">{{article.tags}}</span></p>
+        </div>
+    </div>
+    {% endfor %}
+</div>

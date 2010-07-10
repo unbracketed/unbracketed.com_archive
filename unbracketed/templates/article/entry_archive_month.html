@@ -1,0 +1,10 @@
+{% extends "article/base.html" %}
+{% load article_tags %}
+{% block main_content %}
+	{% entry_excerpt_list object_list %}
+{% endblock main_content %}
+
+{% block content_title %}Archived Entries for {{ month|date:"F Y" }}{% endblock %}
+{% block breadcrumbs %}{{block.super}}  >  <a href="{% url article_entry_archive_year year=month|date:"Y" %}">{{month|date:"Y"}}</a>  >  {{month|date:"F"}}{% endblock %}
+
+{% block page_title %}Unbracketed: {{month|date:"F Y"}} Archive{% endblock %}

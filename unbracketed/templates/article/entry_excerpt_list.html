@@ -1,0 +1,9 @@
+{% load widont %}
+{% for entry in blog_entry_list %}
+            <!-- Begin blog entry -->
+		<h3><a href="{{ entry.get_absolute_url }}">{{ entry.title|widont|safe }}</a></h3>
+		<p class="pub_date">Published {{ entry.pub_date|timesince }} ago</p>		
+		{{ entry.excerpt_html|safe }}
+		<p class="read-more"><a href="{{ entry.get_absolute_url }}">Read full entry &nbsp;&nbsp;>>  </a></p>
+            <!-- end blog entry -->
+{% endfor %}

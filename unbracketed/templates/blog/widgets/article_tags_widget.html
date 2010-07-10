@@ -1,0 +1,13 @@
+{% load tagging_util_tags %}
+{% top_tags_for_model article.Entry as top_entry_tags 5 %}
+	
+<h2>Topics</h2>
+<ul>
+{% for topic in top_entry_tags %}
+    <li>
+        <a href="{{ topic.feed_url }}"><img width="16" height="16" src="{{MEDIA_URL}}images/feed.png" alt="feed icon"/></a>
+        <a href="{% url blog_tag_list topic %}">{{topic.name}}</a>
+    </li>
+{% endfor %}	
+    <li style="padding-left:20px;background:#e6ece6;border-top:1px dotted #FF7900"><b>See</b> <a href="{% url blog_tag_cloud %}">all</a> <b>topics</b></li>
+</ul>

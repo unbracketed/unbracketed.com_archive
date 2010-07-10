@@ -1,0 +1,8 @@
+{%load content_tags%}
+<div class="teasebox" id="twitter-tease">
+    
+        <a href="{{item.source_url}}"><img src="{{MEDIA_URL}}images/icons/twitter_48.png"/></a>
+        <span class="timesince">{{item.date_created|timesince}} ago</span> 
+        <p>{{item.message|format_tweet|safe}}</p>
+    
+</div>

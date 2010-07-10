@@ -1,0 +1,21 @@
+{% extends "admin/change_form.html" %}
+
+{% block extrahead %}
+{{block.super}}
+<link rel="stylesheet" type="text/css" href="{{MEDIA_URL}}css/markitup/markdown/admin-article-entry-style.css" />
+<link rel="stylesheet" type="text/css" href="{{MEDIA_URL}}css/markitup/skins/markitup/style.css" />
+
+<script src="{{MEDIA_URL}}js/jquery.js"></script>
+<script type="text/javascript" src="{{MEDIA_URL}}js/markitup/jquery.markitup.js"></script>
+<script type="text/javascript" src="{{MEDIA_URL}}js/markitup/markdown/admin-article-entry-set.js"></script>
+<script type="text/javascript" >
+function togglePreviewRefresh( options ) { options.previewIFrameRefresh = !options.previewIFrameRefresh; };
+$(document).ready(function() {
+    
+    
+    //$.fn.markItUp.togglePreviewRefresh = function() { options.previewIFrameRefresh = !options.previewIFrameRefresh; };
+    $("#id_body").markItUp( mySettings );
+    //$.extend( $("#id_body"),{ togglePreviewRefresh: function() { options.previewIFrameRefresh = !options.previewIFrameRefresh; } } );  
+});
+</script>
+{% endblock %}

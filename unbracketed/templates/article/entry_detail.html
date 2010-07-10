@@ -1,0 +1,34 @@
+{% extends "article/base.html" %}
+{% load markup %}
+{% load tagging_tags %}
+{% load article_tags %}
+{% load widont %}
+
+{% block main_content %}
+		<h2>{{object.title|safe}}</h2>
+   		<!-- Begin blog entry -->
+		{{ object.body_html|safe }}
+		
+<!-- meta info box -->
+<div id="entry-footer">
+	
+	{% tags_for_object object as entry_tag_list %}
+	<dl>
+		{% if entry_tag_list %}
+		<dt><b>Tagged:</b></dt><dd>{% for tag in entry_tag_list %}<a href="{% url blog_tag_list tag %}">{{tag.name}}</a>&nbsp;&nbsp;{% endfor %}</dd>
+		{% endif %}
+	</dl>
+	<div style="clear:left">&nbsp;</div>
+</div>
+<!-- END meta info box -->
+
+
+<!-- NAV LINKS -->
+<p>
+	<a href="{% url home_page %}" id="back-link" class="nav_button">&nbsp;<<&nbsp;&nbsp;&nbsp; Back to Unbracketed Home</a>
+</p>
+<!-- END NAV LINKS -->
+{% endblock main_content %}
+
+{% block content_title %}{{object.title|widont|safe}}{% endblock content_title %}
+{% block page_title %}Unbracketed: {{object.title}}{% endblock %}

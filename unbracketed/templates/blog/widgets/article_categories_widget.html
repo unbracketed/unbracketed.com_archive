@@ -1,0 +1,12 @@
+{% load utils_tags %}
+{% generic_object_list article.category all as article_categories %}
+
+<h2>Content</h2>
+<ul>
+{% for cat in article_categories %}
+    <li>
+            <a href="{{cat.get_feed_url}}"><img width="16" height="16" src="{{MEDIA_URL}}images/feed.png" alt="feed icon"/></a> 
+            <a href="{{cat.get_absolute_url}}">{{cat.title}}</a>
+    </li>
+{% endfor %}
+</ul>

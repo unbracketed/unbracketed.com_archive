@@ -1,0 +1,18 @@
+<div class="teasebox" id="delicious-tease" style="height:40px; padding:15px 10px 5px 10px">
+    <img src="{{MEDIA_URL}}images/icons/delicious-16x16.png"/> My <a href="http://delicious.com/kingoflunnova" rel="me">Bookmarks on Delicious</a>
+    {% include "widgets/paginator.html" %}
+</div>
+<div>
+    {% for bookmark in object_list %}
+    <div class="line {% cycle "dark" "lessdark" %}" style="margin-bottom:0px">
+        <div class="unit size1of5">
+            <p class="twitter-time">{{bookmark.date_created|timesince}} ago</p>
+        </div>
+        <div class="unit size4of5" style="padding-bottom:10px">
+          <p class="twitter-time"><a href="{{bookmark.url}}">{{bookmark.title}}</a></p>  
+          <p class="twitter-message">{{bookmark.description}}</p>
+          <p class="tag_list">Tagged: <span class="tags">{{bookmark.tags}}</span></p>
+        </div>
+    </div>
+    {% endfor %}
+</div>

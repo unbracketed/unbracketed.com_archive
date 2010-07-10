@@ -1,0 +1,10 @@
+{% load tag_cloud_delicious_django %}
+
+{% delicious_django_tags %}
+{% for topic in tags %}
+	<span class="tag-cloud-weight{% tag_font_size tags topic %} cloud-item"><a style="text-decoration:none" href="{% url blog_tag_list topic %}">{{ topic }}</a></span>
+{% endfor%}
+
+
+
+

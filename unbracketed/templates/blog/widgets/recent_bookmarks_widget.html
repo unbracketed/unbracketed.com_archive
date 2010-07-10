@@ -1,0 +1,14 @@
+{% load generic_content %}
+{% load widont %}
+
+{% get_latest_objects bookmark.link 5 as recent_links %}
+
+<h2>Latest Links</h2>
+<ul>
+{% for link in recent_links %}
+  <li class="{% cycle 'list_row1' 'list_row2' %}"><a rel="bookmark" href="{{link.url}}">{{link.title|widont|safe}}</a>
+  <br/>
+  {{link.description|widont|safe}}
+  </li>
+{% endfor %}
+</ul>

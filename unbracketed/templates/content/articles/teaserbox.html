@@ -1,0 +1,7 @@
+<div class="teasebox" id="pro-tips-tease">
+    <a id="pro-tip-tease-logo" href="{{item.url}}" style="color:#FFF"><img height=24px src="{{MEDIA_URL}}images/icons/berretr_Pencil.png"/></a>
+    <span class="timesince">{{item.date_created|timesince}} ago</span>
+    <p style="padding-top:15px"><a href="{{item.url}}" style="color:#FFF">Article</a></p>
+    {%if item.excerpt %}<p>{{item.excerpt|truncatewords:14}}</p>{%endif%}
+    <p class="tag_list">Tagged: <span class="tags">{{item.tags}}</span></p>
+</div>

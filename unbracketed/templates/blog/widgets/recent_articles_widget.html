@@ -1,0 +1,15 @@
+{% load generic_content %}
+{% load widont %}
+
+{% get_latest_objects article.entry 5 as recent_posts %}
+
+<h2>Recent posts</h2>
+<ul>
+{% for entry in recent_posts %}
+  <li class="{% cycle 'list_row1' 'list_row2' %}"><a rel="bookmark" href="{{entry.get_absolute_url}}">{{entry.title|widont|safe}}</a>
+  <br/>
+  &nbsp;&nbsp;<span class="pub_date">{{entry.pub_date|timesince}} old</span>
+  </li>
+{% endfor %}
+  <li><a href="{% url blog_feeds "latest" %}"><img src="{{MEDIA_URL}}images/feed.png" width="16" height="16" alt="Feed icon" /></a><a href="{% url blog_feeds "latest" %}" type="application/rss+xml"> Feed of latest entries</a></li>
+</ul>

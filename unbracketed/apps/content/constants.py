@@ -1,0 +1,21 @@
+"""Constants for the content app"""
+
+CONTENT_SOURCE_TWITTER = 'twitter'
+CONTENT_SOURCE_DELICIOUS = 'delicious'
+CONTENT_SOURCE_PRO_TIP = 'pro-tips'
+CONTENT_SOURCE_CHOICES = (
+    ('ub','unbracketed',),
+    (CONTENT_SOURCE_PRO_TIP,'Pro Tip'),
+    (CONTENT_SOURCE_DELICIOUS,'Delicious bookmark',),
+    (CONTENT_SOURCE_TWITTER,'Tweet',),
+)
+
+CONTENT_PUBLISH_STATUS_DRAFT = 'draft'
+CONTENT_PUBLISH_STATUS_PUBLISHED = 'published'
+CONTENT_PUBLISH_STATUS_ARCHIVED = 'archived'
+CONTENT_PUBLISH_STATUS_CHOICES = (
+    (CONTENT_PUBLISH_STATUS_DRAFT,'Draft',),
+    (CONTENT_PUBLISH_STATUS_PUBLISHED,'Published',),
+    (CONTENT_PUBLISH_STATUS_ARCHIVED,'Archived',),
+)
+

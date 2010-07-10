@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+	<title>{% block page_title %}Unbracketed: Python and Django Will Set You Free{% endblock page_title %}</title>
+	<link rel="openid.server" href="http://www.myopenid.com/server">
+        <link rel="openid.delegate" href="http://brianluft.myopenid.com/">
+	<link rel="stylesheet" href="{{MEDIA_URL}}css/styles.css"/>
+	<link rel="stylesheet" href="{{MEDIA_URL}}css/syntax.css"/>
+	{% block stylesheets %}{% endblock %}
+	{% if debug %}  
+    	<link rel="stylesheet" type="text/css" media="screen" href="{{MEDIA_URL}}css/debug.css" />  
+    {% endif %} 
+	{% if debug %} 
+		<link rel="alternate" title="Feed of latest articles" href="{% url blog_feeds "latest" %}" type="application/rss+xml" />
+	{% else %}
+		<link rel="alternate" title="Feed of latest articles" href="http://feeds.unbracketed.org/Unbracketed" type="application/rss+xml" />
+	{% endif %}
+	<link rel="icon" href="{{MEDIA_URL}}images/favicon.ico" type="image/x-icon">
+	<link rel="shortcut icon" href="{{MEDIA_URL}}images/favicon.ico" type="image/x-icon"> 
+</head>
+	
+<body>
+	
+	<div id="header" class="wrapper">
+	
+		<div class="block">
+			{% block header %}
+			<img src="{{MEDIA_URL}}images/unbracketed_logo.png"/>
+			<h1 id="branding"><a id="ub_text" href="{% url home_page %}"></a></h1>
+			{% endblock header %}
+		</div>
+	
+	</div>
+	
+<div id="main" class="wrapper">
+	
+	<div id="body" class="block">
+	
+		<div id="content" class="unit span-10 first">
+			<h2>{% block content_title %}{% endblock content_title %}</h2>
+			
+			<div id="breadcrumbs">
+	            {% block breadcrumbs %}Home{% endblock %}
+	        </div>
+		{% block main_content %}
+		{% endblock main_content %}
+		</div>
+	
+	<div id="sidebar" class="unit span-6 last">
+    {% block sidebar %}
+		{% load blog_widget_tags %}
+		
+                {% if not is_home_page %}
+                        {% recent_articles_widget %}
+                {% endif %}
+                {% recent_bookmarks_widget %}
+                {% categories_topics_combo_widget %}
+		{% search_widget %}
+                {% include "blog/widgets/projects_widget.html" %}
+                {% include "blog/widgets/essentials_widget.html" %}
+                {% include "blog/widgets/django_tips_widget.html" %}
+                {% article_archive_widget %}
+	{% endblock sidebar %}
+	</div>
+	</div>
+</div>
+
+
+	<div id="footer" class="wrapper">
+		<div class="block">
+	{% block footer %}
+		<p id="copyright">Content and Design &copy; 2008 <a href="/">Unbracketed</a></p><a href="http://djangoproject.com"><img src="{{MEDIA_URL}}images/djangojoint107x25_grey.gif"></a>
+                <p id="info_links"><a href="/about/">About</a>&nbsp;&nbsp;<a href="/contact/">Contact</a>
+	{% endblock footer %}
+		</div>
+	</div>
+	
+fuck the what
+	{% include "analytics/google_analytics_script.html" %}
+what the fuck
+
+{% if debug %}
+	{% load debug_tags %}
+	{% query_log sql_queries %}
+{% endif %}
+
+</body>
+</html>

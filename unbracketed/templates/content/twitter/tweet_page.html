@@ -1,0 +1,21 @@
+{% load cache %}
+{% load content_tags %}
+
+{% cache 500 tweet_archive_page page %}
+<div class="teasebox" id="twitter-tease" style="height:40px; padding:15px 10px 5px 10px">
+    <img src="{{MEDIA_URL}}images/icons/twitter-16x16.png"/> Follow me on <a href="http://twitter.com/unbracketed" rel="me">Twitter</a>
+    {% include "widgets/paginator.html" %}
+</div>
+<div id="tweet_page">   
+    {% for tweet in object_list %}   
+    <div class="line {% cycle "dark" "lessdark" %}" style="margin-bottom:0px;height:80px">
+       <div class="unit size1of5">
+            <p class="twitter-time"><a href="{{tweet.source_url}}">{{tweet.date_created|timesince}} ago</a></p>
+        </div>
+       <div class="unit size4of5">
+          <p class="twitter-message">{{tweet.message|format_tweet|safe}}</p>  
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endcache %}

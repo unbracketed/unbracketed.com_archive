@@ -1,0 +1,4 @@
+<VirtualHost *:8080>
+        ServerName dev.unbracketed.com
+        WSGIScriptAlias / /home/brian/proj/unbracketed/unbracketed/config/airtank.wsgi
+</VirtualHost>

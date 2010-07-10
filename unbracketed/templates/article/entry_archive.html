@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+{% load article_tags %}
+{% block main_content %}
+    {% entry_excerpt_list latest %}
+{% endblock main_content %}
+
+{% block content_title %}Latest Entries{% endblock %}
